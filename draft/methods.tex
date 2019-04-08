@@ -1,0 +1,47 @@
+\section{Methoden}
+Die Studie erfasst das Selbstbewusstseins der Teilnehmer, sowie den Einfluss aktivierender Lehrmethoden auf das Selbstbewustsein. Gemessen wird die subjektive Selbsteinschätzung an Hand einer Liste an Hypothesen, welche binär (trifft zu, trifft nicht zu) beantwortet werden können.
+
+\subsection{Teilnehmer}
+Insgesamt nahmen 11 Studierende an der Studie teil. Die Teilnehmer setzten sich zusammen aus Studierenden der Masterstudiengänge Chemie, Biochemie und Biophysik. Das Geschlecht der Teilnehmer (w/m/d) wurde im Rahmen der Studie nicht berücksichtigt.
+
+\subsection{Studiendesign}
+Die Studierenden definieren anonym ihr Selbstbewusstsein. Hierbei ist die Definition des Selbstbewusstseins in vorangegangenen Literaturseminaren die unabhängige Variable, an Hand derer die Studierenden in eine Gruppe mit starkem Selbstbewusstsein und eine mit schwachem Selbstbewusstsein unterteilt werden. Die Gruppe der Studierenden mit schwachem Selbstbewusstsein definieren, ob sich ihr Selbstbewusstsein, durch die angebotenen aktivierenden Lehrmethoden gesteigert hat. Die abhängige Variable der Selbstbewusstseinssteigerung wird statistische analysiert, indem die Fraktion an Studierenden ermittelt wird, bei denen aktivierende Lehrmethoden zu einer Steigerung des Selbstbewusstseins beitragen.\\
+\noindent
+In einem Zweiten Teil sollen die Lehrmethode identifiziert werden, die zur Steigerung des Selbstbewusstseins geführt haben. Die unabhängige Variable ist hierbei eine positive Selbstbewusstseinssteigerung im vorangegangenem Test. Hierzu benennen die Studierenden, bei denen eine Selbstbewusstseinssteigerung eintrat, die verursachende Lehrmethode als abhängige Variable. Hierbei sind mehrfach Nennungen möglich. Im zweiten Teil werden die Antworten aller Teilnehmer berücksichtigt, die einen Zuwachs an Selbstbewusstsein dokumentierten, unabhängig von der Einteilung im ersten Teil der Studie.
+
+
+\subsection{Studiendurchführung}
+Als Messinstrument dient eine Sammlung an Thesen (siehe Anhang), deren Wahrheitsgehalt die Studierenden in einem geschlossen, binären multiple choice (0= trifft nicht zu zu; 1 = trifft zu) bewerten. Die Thesensammlung wird am Ende der Lehrveranstaltung anonym von den Teilnehmern ausgefüllt.
+
+\subsection{Datenauswertung}
+Zur Datenauswertung wurden die Frequenzen positiver Antworten (trifft zu) ermittelt. Die überprüfung der Hypothesen geschah über der Methode der Bedingten Wahrscheinlichkeit. Im folgenden werden die verwendeten Notationen vorgestellt.\\
+\noindent
+Die Wahrscheinlichkeit $P$, dass eine Hypothese $H$ zutrifft, wird notiert als
+\begin{align}
+	\label{eq:Prob1}
+	P(H)
+\end{align}
+
+\noindent
+Die Wahrscheinlichkeit $P$, dass eine Hypothese $D$ zutrifft, wird notiert als
+\begin{align}
+\label{eq:Prob2}
+	P(D)
+\end{align}
+
+\noindent
+Für den Fall, dass die Wahrscheinlichkeit $P(H)$ von der Bedingung abhängt, ob Hypothese $D$ zutreffend ist, wird die bedingte Wahrscheinlichkeit für ein zutreffen von $H$ eingeführt:
+\begin{align}
+\label{eq:ConProb}
+	P(H|D)
+\end{align}
+
+\noindent
+Sind die Wahrscheinlichkeiten aus Gleichungen \eqref{eq:Prob1},\eqref{eq:Prob2} und \eqref{eq:ConProb} bekannt, so kann über den Satz von Bayes die bedingte Wahrscheinlichkeit $P(D|H)$ berechnet werden:
+\begin{align}
+\label{eq:Bayes}
+	P(D|H) = \frac{P(D)P(H|D)}{P(H)}
+\end{align}
+
+\subsection{Verfügbarkeit der Studie}
+Der Anonyme Datensatz, sowie die entwickelte Auswerteroutine stehen frei zur Verfügung \url{https://github.com/SMLMS/edResearch} 
