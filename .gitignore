@@ -8,3 +8,6 @@
 *.out
 *.gz
 *.toc
+*.Rproj.user
+*.html
+.Rproj.user

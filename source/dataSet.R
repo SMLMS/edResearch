@@ -18,6 +18,7 @@ DataSet <- setRefClass(
   )
 )
 
+DataSet$accessors("fileName")
 DataSet$accessors("rawData")
 DataSet$accessors("filteredData")
 DataSet$accessors("hypothesis")
@@ -63,21 +64,21 @@ DataSet$methods(chooseFileName = function()
     return(FALSE)
   }
   else {
-    getFolderName()
-    getBaseName()
+    defineFolderName()
+    defineBaseName()
     return(TRUE)
   }
 }
 )
 
-DataSet$methods(getBaseName = function()
+DataSet$methods(defineBaseName = function()
 {
   baseName <<- tools::file_path_sans_ext(basename(fileName))
   baseName <<- paste(format(Sys.time(), "%Y%m%d_%H%M%S_"),baseName, sep="")
 }  
 )
 
-DataSet$methods(getFolderName = function()
+DataSet$methods(defineFolderName = function()
 {
   folderName <<- dirname(fileName)  
 }
@@ -130,35 +131,48 @@ DataSet$methods(filterData = function(column = 'none', value=TRUE)
 
 DataSet$methods(plotColumn = function(column='none', condition ='none')
 {
+  plotTitle <- sprintf("P(%s", column)
+  if (strcmp(condition, 'none'))
+  {
+    plotTitle <- paste(plotTitle, ')', sep=' ') 
+  }
+  else
+  {
+    plotTitle <- paste(plotTitle, ' | D=TRUE)', sep=' ')
+  }
   filterData(column = condition)
   theme_set(theme_classic())
   pie <- ggplot(filteredData, aes(x = "", fill = filteredData[,column])) +
     geom_bar(aes(y = (..count..)/sum(..count..))) +
     theme(axis.line = element_blank(), 
-          plot.title = element_text(hjust=0.5)) + 
+          plot.title = element_text(hjust=0.5),
+          text = element_text(size=18)) + 
     labs(fill=column, 
          x=NULL, 
          y=NULL, 
-         title='Kochendiagramm', 
-         caption= paste('Bedingung:', condition, sep=' '))
+         title=plotTitle, 
+         caption= paste('D:', condition, sep=' '))
   plot(pie + coord_polar(theta = "y", start=0))
 } 
 )
 
-DataSet$methods(plotBar = function(columns = c('frage_1.1', 'frage_1.8'), condition = 'none')
+DataSet$methods(plotBar = function(columns = c('Hypothese_1.1', 'Hypothese_1.8'), condition = 'none')
 {
   filterData(column = condition)
   dss <- subset(filteredData, select=columns)
   causes <- data.frame(
-    fragen = columns,
-    P=as.numeric(colSums(dss, na.rm = TRUE))/nrow(dss)
+    h = columns,
+    p=as.numeric(colSums(dss, na.rm = TRUE))/nrow(dss)
     )
 
   fig <- ggplot(data=causes) +
     geom_bar(
-      mapping = aes(x=fragen, y=P),
-      stat = 'identity'
-    )
+      mapping = aes(x=h, y=p),
+      stat = 'identity',
+    )+
+    xlab("H")+
+    ylab("P(H=TRUE)")+
+    theme(text = element_text(size=20),axis.text.x = element_text(angle=30, hjust=1)) 
   plot(fig)
 }
 )

@@ -1,0 +1,357 @@
+---
+title: "Literaturseminare in den Naturwissenschaften: Die Förderung des Selbstbewusstseins in einer Gruppe durch aktivierende Lehrmethoden"
+author: "Sebastian Malkusch"
+date: "04. 04. 2019"
+output: html_document
+---
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+source("source/dataSet.R")
+source("source/analysis1.R")
+source("source/analysis2.R")
+source("source/analysis3.R")
+source("source/analysis4.R")
+source("source/analysis5.R")
+students <- DataSet$new()
+students$setFileName("data/Lehrforschung_Results_Malkusch_190326.xlsx")
+students$defineFolderName()
+students$defineBaseName()
+students$importExcel()
+```
+
+
+## Motivation
+
+Aktivierende Methoden wie der inverted classroom [1] führen nachweislich zu einer Steigerung des Selbstbewusstseins von Studierenden [2] welche nach dem ARCS Modell (Aufmerksamkeit, Relevanz, (Selbst-) Vertrauen und Zufriedenheit) [3] zu einer erhöhten Lernmotivation führt. Der Erfolg des ARCS Modells konnte auch für Studierende der Physik nachgewiesen werden, einem Fach in dem konservative Lehrmethoden, der Lehrende trägt vor während die Studierenden zuhören und protokollieren, bisweilen überwiegen [4]. Im Rahmen dieser Studie wird überprüft, in wie weit aktivierende Lehrmethoden eine positive Auswirkung auf das Selbstbewusstsein Studierender eines Literaturseminars aus dem Bereich der Biophysik hat.
+
+## Hypothese
+Aktivierende Lehrmethoden helfen Studierenden mit geringerem Selbstbewusstsein die Angst zu überwinden, sich an einer Diskussion von komplexen wissenschaftlichen Themen in einer Gruppe zu beteiligen. Mit ihrer Hilfe wird eine Atmosphäre geschaffen, in der offen Diskutiert werden kann, ohne dass die Studierenden Angst haben müssen eine Wissenslücke zu offenbaren.
+
+## Beschreibung der Lehrveranstaltung
+Das Literatur-Seminar Vertiefung: Einzelmolekülspektroskopie und hochauflösende Mikroskopie wird für Studierende der Masterstudiengänge Chemie, Biochemie und Biophysik angeboten. Der Teilnahme ist ein erfolgreicher Abschluss der vorangegangenen Vorlesung Einführung in die Einzelmolekülspektroskopie und hochauflösende Mikroskopie vorausgesetzt. Die Teilnahme
+ist auf 20 Studierende beschränkt.
+Das Modul setzt sich aus 3 Lerneinheiten zusammen: Zu Beginn des Kurses wird der Inhalt der vorangegangenen Vorlesung in einem inverted class room [1] aufgefrischt. Kursbegleitend wird ein Praktikum im Forschungslabor durchgeführt, in welchem die Teilnehmer in kleinen Gruppen (ca. 3-4 Personen) das Erlernte praktisch anwenden können. Im Seminarteil werden von den Studierenden aktuelle Themen der Forschung in Form einer Präsentation vorgestellt.
+Im Rahmen des Kurses soll neben der Vermittlung fachlichen Wissens ein Einblick in verschiedene Aspekte der wissenschaftlichen Arbeitswelt gegeben werden. So ist das Seminar einer wissenschaftlichen Fachkonferenz nachempfunden, im Verlauf derer die Studierenden verschiedene Rollen einnehmen:
+Wissenschaftlicher Referent, kritisches Auditorium, Diskussionsleiter.
+Im Verlauf des Seminars übernimmt jeder Teilnehmer einmal die Rolle eines wissenschaftlichen Referenten, welcher eine vorgegebene Forschungsarbeit vorstellt. Der Seminarbeitrag des Referenten besteht wie bei einer Konferenz aus einer schriftlichen Zusammenfassung und einer Präsentation.
+
+## Forschungsdesign
+Die Studierenden definieren anonym ihr Selbstbewusstsein, sich an Diskussionsrunden im Rahmen von Literaturseminaren zu beteiligen. Hierbei ist die Definition des Selbstbewusstseins in vorangegangenen Literaturseminaren die unabhängige Variable, an Hand derer die Studierenden in eine Gruppe mit starkem Selbstbewusstsein und eine mit schwachem Selbstbewusstsein unterteilt werden. Die Gruppe der Studierenden mit schwachem Selbstbewusstsein definieren, ob ihr Selbstbewusstsein, sich an Diskussionsrunden zu beteiligen, durch die angebotenen aktivierenden Lehrmethoden gesteigert wird. Die abhängige Variable der Selbstbewusstseinssteigerung wird statistische analysiert, indem die Fraktion an Studierenden ermittelt wird, bei denen aktivierende Lehrmethoden zu einer Steigerung des Selbstbewusstseins beitragen. In einem Zweiten Teil sollen die Lehrmethode identifiziert werden, die zur Steigerung des Selbstbewusstseins geführt haben. Die unabhängige Variable ist hierbei eine positive Selbstbewusstseinssteigerung im vorangegangenem Test. Hierzu benennen die Studierenden, bei denen eine Selbstbewusstseinssteigerung eintrat, die verursachende Lehrmethode als abhängige Variable. Hierbei sind mehrfach Nennungen möglich.
+
+## Ergebnisse
+
+### Optimierung des Selbstbewusstseins der Studierenden furch aktivierende Lehrmethoden
+Die Studierenden Sollten folgende Fragen mit Ja (TRUE) oder nein Beantworten (FALSE)
+
+Hypothese_1.1: Bei einer Diskussion wissenschaftlcher Fragestellungen innerhalb einer Gruppe vor dem Dozenten fühle ich mich unwohl und halte mich eher zurück, um nichts flasches zu sagen.
+
+Hypothese_1.8: Der Aufbau der Veranstaltung hat dazu beigetragen, dass ich mich bei einer Diskussion wissenschaftlicher Fragestellungen innerhalb einer Gruppe vor dem Dozenten sicherer fühle. Im Laufe der Veranstaltung ist meine Angst, eine Wissenslücke zu offenbaren, gesunken.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+q1 <- Analysis1$new()
+q1$rawData <- students$copy()
+q1$statistics()
+q1$graphics()
+q1$printStatistics()
+```
+
+Unter den befragten Studierenden gaben 45% an, ein geringes Selbstbewusstsein zu haben. Die aktivierenden Lerhmethoden haben bei insgesamt 73% der Studierenden einen positiven Effekt auf das Selbstbewusstsein. Innerhalb der Gruppe der Studierenden, welche ihr Selbstbewusstsein als gering eingestuft hatten, berichteten 80% der Studierenden von einer optimierung des Selbstbewusstseins durch die aktivierenden Lehrmethoden.
+
+### Ursachen für ein vermindertes Selbstbewusstsein der Studierenden
+Als Ursache für ein vermindertes Selbstbewusstsein der Studierenden wurden 4 Hypothesen aufgestellt, welche die Studierenden mit trifft zu (TRUE) oder trifft nicht zu (FALSE) charakterisieren sollten.
+
+Hypothese_1.2.1: Wenn ich ein Problem nicht komplett verstehe, weil mir zum Beispiel
+grundlegendes Basiswissen fehlt, werde ich ängstlich.
+
+Hypothese_1.2.2: Es beunruhigt mich, eine schwierige Aufgabe zu bearbeiten, wenn ich
+nicht sicher bin, dass ich ausreichend vorbereitet bin.
+
+Hypothese_1.2.3: Arbeiten, bei denen meine Fähigkeiten vor einem großen Publikum
+mit meist unbekannten Teilnehmern auf die Probe gestellt werden,
+mag ich nicht.
+
+Hypothese_1.2.4: Bei einer direkten Diskussion mit dem Dozenten vor dem Auditorium
+bin in verunsichert, weil ich Angst habe etwas falsches zu sagen.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+q2 <- Analysis2$new()
+q2$rawData <- students$copy()
+q2$statistics()
+q2$graphics()
+q2$printStatistics()
+```
+### Wirken sich aktivierende Lehrmethoden positiv auf das Selbstbewustsein der Studierenden aus?
+Die Studierenden sollten einschätzen welche der vier Problem-Faktoren (Angst vor dem Dozenten, Angst vor der Gruppe, Probleme bei der Bewertung der besprochenen Arbeiten, Probleme beim Verständnis der diskutierten Daten) durch die angebotenen, aktivierenden Lehrmethoden (Wiederholung in form des inverted class room, Bearbeitung des Referenten Abstracts, Praktische Übungen im Labor, Arbeit in Kleinstgruppen, Leitung der diskussion durch einen Studierenden) optimiert wurden.  An Hand der Aussagen wurde durch die Berechnung der bedingten Wahrscheinlichkeit ermittel, welche Lehrmethoden geeignet sind, um eine Erhöhung des Selbstbewusstseins zu erzielen.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+q3 <- Analysis3$new()
+q3$rawData <- students$copy()
+q3$expandRawData()
+q3$statistics()
+```
+ Scheinbar alle, bis auf den Chair.
+
+
+### Welche Faktoren haben einen Einfluss auf die optimierung des Selbstbewusstseins der Studierenden?
+Die Studierenden sollten einschätzen welche der vier Problem-Faktoren (Angst vor dem Dozenten, Angst vor der Gruppe, Probleme bei der Bewertung der besprochenen Arbeiten, Probleme beim Verständnis der diskutierten Daten) durch die angebotenen, aktivierenden Lehrmethoden (Wiederholung in form des inverted class room, Bearbeitung des Referenten Abstracts, Praktische Übungen im Labor, Arbeit in Kleinstgruppen, Leitung der diskussion durch einen Studierenden) optimiert wurden. An Hand der Aussagen wurde durch die Berechnung der bedingten Wahrscheinlichkeit ermittel, welche Problem-Faktoren optimiert werden müssen, um eine Erhöhung des Selbstbewusstseins zu erzielen.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+q4 <- Analysis4$new()
+q4$rawData <- students$copy()
+q4$expandRawData()
+q4$statistics()
+q4$graphics()
+q4$printStatistics()
+```
+
+Das Selbstbewusstsein der Studierenden steigert sich am stärksten, wenn die Angst vor dem Dozenten verringert wird.
+
+### Welche aktivierende Lehrmethode festigt das Vorwissen der Studierenden?
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+q5 <- Analysis5$new()
+q5$rawData <- students$copy()
+q5$statistics(frage=1)
+q5$graphics(frage=1)
+q5$printStatistics()
+```
+
+
+### Welche aktivierende Lehrmethode unterstützt die Studierenden bei der Vorbereitung??
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+q5$statistics(frage=2)
+q5$graphics(frage=2)
+q5$printStatistics()
+```
+
+### Durch welche aktivierende Lehrmethode wird den Studierenden die Angst vor der Gruppe genommen?
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+q5$statistics(frage=3)
+q5$graphics(frage=3)
+q5$printStatistics()
+```
+
+### Durch welche aktivierende Lehrmethode wird den Studierenden die Angst vor dem Dozenten genommen?
+Da das Selbstbewusstsein der Studierenden am stärksten durch die Angst vor dem Dozenten beeinflusst wird, soll im letzten Teil untersucht werden, welche der aktivierenden Lehrmethoden aus der Studie den Studierenden die Angts vor dem dozenten nehmen.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+q5$statistics(frage=4)
+q5$graphics(frage=4)
+q5$printStatistics()
+```
+
+Das praktische Arbeiten reduzeirt die Angst vor dem Dozenten am effektivsten.
+
+## Diskussion
+Im Rahmen eines Praktikums werden die Barrieren zwischen Dozent und Studierendem stärker reduziert. Dies scheint von einem Zuwachs an Selbstbewusstsein begleitet zu werden.
+
+## Anhang
+### Hypothese_1.1
+Bei einer Diskussion wissenschaftlicher Fragestellungen innerhalb einer Gruppe vor dem Dozenten fühle ich mich unwohl und halte mich eher zurück, um nichts falsches zu sagen.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.1')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.2.1
+Wenn ich ein Problem nicht komplett verstehe, weil mir zum Beispiel grundlegendes Basiswissen fehlt, werde ich ängstlich.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.2.1')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.2.2
+Es beunruhigt mich, eine schwierige Aufgabe zu bearbeiten, wenn ich nicht sicher bin, dass ich ausreichend vorbereitet bin.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.2.2')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.2.3
+Arbeiten, bei denen meine Fähigkeiten vor einem großen Publikum mit meist unbekannten Teilnehmern auf die Probe gestellt werden, mag ich nicht.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.2.3')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.2.4
+Bei einer direkten Diskussion mit dem Dozenten vor dem Auditorium bin in verunsichert, weil ich Angst habe etwas falsches zu sagen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.2.4')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.3.1
+Die Wiederholung des Basiswissens zu Begin des Seminars in Form eines inverted class rooms hat mir bei dem Verständnis der diskutierten Daten geholfen
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.3.1')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.3.2
+Die Wiederholung des Basiswissens zu Begin des Seminars in Form eines inverted class rooms hat mir bei der Bewertung der wissenschaftlichen Arbeit, welche im Seminar vorgestellt wurde, geholfen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.3.2')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.3.3
+Die Wiederholung des Basiswissens zu Begin des Seminars in Form eines inverted class rooms hat mir die Angst genommen, vor der Gruppe etwas falsches zu sagen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.3.3')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.3.4
+Die Wiederholung des Basiswissens zu Begin des Seminars in Form eines inverted class rooms hat mir die Angst genommen, vor der Gruppe durch den Dozenten bloßgestellt zu werden.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.3.4')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.4.1
+Die Literatur-Arbeit mit der Referenten-Zusammenfassung des Artikels vorangehend an das Seminar hat mir bei dem Verständnis der diskutierten Daten geholfen. 
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.4.1')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.4.2
+Die Literatur-Arbeit mit der Referenten-Zusammenfassung des Artikels vorangehend an das Seminar hat mir bei der Bewertung der wissenschaftlichen Arbeit, welche im Seminar vorgestellt wurde, geholfen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.4.2')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.4.3
+Die Literatur-Arbeit mit der Referenten-Zusammenfassung des Artikels vorangehend an das Seminar hat mir die Angst genommen, vor der Gruppe etwas falsches zu sagen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.4.3')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.4.4
+Die Literatur-Arbeit mit der Referenten-Zusammenfassung des Artikels vorangehend an das Seminar hat mir die Angst genommen, vor der Gruppe durch den Dozenten bloßgestellt zu werden.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.4.4')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.5.1
+Das praktische Umgang mit der Thematik im Labor parallel zum Literaturseminar hat mir bei dem Verständnis der diskutierten Daten geholfen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.5.1')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.5.2
+Das praktische Umgang mit der Thematik im Labor parallel zum Literaturseminar hat mir bei der Bewertung der wissenschaftlichen Arbeit, welche im Seminar vorgestellt wurde, geholfen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.5.2')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.5.3
+Das praktische Umgang mit der Thematik im Labor parallel zum Literaturseminar hat mir die Angst genommen, vor der Gruppe etwas falsches zu sagen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.5.3')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.5.4
+Das praktische Umgang mit der Thematik im Labor parallel zum Literaturseminar hat mir die Angst genommen, vor der Gruppe durch den Dozenten bloßgestellt zu werden.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.5.4')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.6.1
+Die Laborarbeit in Kleinstgruppen hat mir bei dem Verständnis der diskutierten Daten geholfen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.6.1')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.6.2
+Die Laborarbeit in Kleinstgruppen hat mir bei der Bewertung der wissenschaftlichen Arbeit, welche im Seminar vorgestellt wurde, geholfen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.6.2')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.6.3
+Die Laborarbeit in Kleinstgruppen hat mir die Angst genommen, vor der Gruppe etwas falsches zu sagen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.6.3')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.6.4
+Die Laborarbeit in Kleinstgruppen hat mir die Angst genommen, vor der Gruppe durch den Dozenten bloßgestellt zu werden.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.6.4')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.7.1
+Die Besetzung der Rolle des Diskussionsleiters durch eine/n Studierende/n hat mir bei dem Verständnis der diskutierten Daten geholfen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.7.1')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.7.2
+Die Besetzung der Rolle des Diskussionsleiters durch eine/n Studierende/n hat mir bei der Bewertung der wissenschaftlichen Arbeit, welche im Seminar vorgestellt wurde, geholfen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.7.2')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.7.3
+Die Besetzung der Rolle des Diskussionsleiters durch eine/n Studierende/n hat mir die Angst genommen, vor der Gruppe etwas falsches zu sagen.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.7.3')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.7.4
+Die Besetzung der Rolle des Diskussionsleiters durch eine/n Studierende/n hat mir die Angst genommen, vor der Gruppe durch den Dozenten bloßgestellt zu werden.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.7.4')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.
+
+### Hypothese_1.8
+Der Aufbau der Veranstaltung hat dazu beigetragen, dass ich mich bei einer Diskussion wissenschaftlicher Fragestellungen innerhalb einer Gruppe vor dem Dozenten sicherer fühle. Im Laufe der Veranstaltung ist meine Angst, eine Wissenslücke zu offenbaren, gesunken.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+students$plotColumn(column = 'Hypothese_1.8')
+```
+
+Anteil der Studierenden, welche die Hypothese mit zutreffend (TRUE, blau), nicht zutreffend (FALSE, rot) oder gar nicht (NA, grau) eingestuft haben.

@@ -26,7 +26,7 @@ Analysis4$methods(expandRawData = function()
     }
     q <<- cbind(q, tmpVec)
   }
-  names(q) <<- c("Probennummer", "Verstaendnis", "Bewertung", "Angst_Gruppe", "Angst_Dozent")
+  names(q) <<- c("Probennummer", "Verstaendnis", "Vorbereitung", "Angst_Gruppe", "Angst_Dozent")
   rawData$setRawData(merge(dss, q))
   rawData$filterData(column = 'none')
 }
@@ -34,11 +34,11 @@ Analysis4$methods(expandRawData = function()
 
 Analysis4$methods(statistics = function()
 {
-  posterior <<- data.frame(datum = c("Verstaendnis", "Bewertung", "Angst_Gruppe", "Angst_Dozent"),
+  posterior <<- data.frame(datum = c("Verstaendnis", "Vorbereitung", "Angst_Gruppe", "Angst_Dozent"),
                            p = c(0,0,0,0))
   for (i in 1:4){
     print(i)
-    rawData$setHypothesis("frage_1.8")
+    rawData$setHypothesis("Hypothese_1.8")
     rawData$setDatum(as.character(posterior$datum[i]))
     print(cat("Ursache ", as.character(posterior$datum[i], "\n")))
     posterior$p[i] <<- rawData$bayesianStatistics()
@@ -52,7 +52,10 @@ Analysis4$methods(graphics = function()
     geom_bar(
       mapping = aes(x=datum, y=p),
       stat = 'identity'
-    )
+    )+
+    xlab("D")+
+    ylab("P(H=TRUE | D=TRUE)")+
+    theme(text = element_text(size=20),axis.text.x = element_text(angle=30, hjust=1))
   plot(fig)
 }
 )

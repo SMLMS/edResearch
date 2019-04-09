@@ -16,7 +16,7 @@ Analysis3$methods(expandRawData = function()
     tempdss <- dss %>% select(start:stop)
     q <<- cbind(q, p=(rowSums(tempdss, na.rm = TRUE) > 0L))
   }
-  names(q) <<- c("Probennummer", "frage_1.3", "frage_1.4", "frage_1.5", "frage_1.6", "frage_1.7")
+  names(q) <<- c("Probennummer", "Hypothese_1.3", "Hypothese_1.4", "Hypothese_1.5", "Hypothese_1.6", "Hypothese_1.7")
   rawData$setRawData(merge(dss, q))
   rawData$filterData(column = 'none')
 }
@@ -25,8 +25,8 @@ Analysis3$methods(expandRawData = function()
 Analysis3$methods(statistics = function()
 { 
   for (i in 3:7){
-    d <- paste0("frage_1.", i)
-    rawData$setHypothesis("frage_1.8")
+    d <- paste0("Hypothese_1.", i)
+    rawData$setHypothesis("Hypothese_1.8")
     rawData$setDatum(d)
     print(cat("Ursache ", d))
     rawData$bayesianStatistics()
@@ -37,6 +37,6 @@ Analysis3$methods(statistics = function()
 
 Analysis3$methods(graphics = function()
 {
-  rawData$plotBar(columns = c('frage_1.2.1', 'frage_1.2.2', 'frage_1.2.3', 'frage_1.2.4'), condition = 'none')
+  rawData$plotBar(columns = c('Hypothese_1.2.1', 'Hypothese_1.2.2', 'Hypothese_1.2.3', 'Hypothese_1.2.4'), condition = 'none')
 }
 )

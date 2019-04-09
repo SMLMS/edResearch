@@ -23,7 +23,7 @@ Analysis$methods(printStatistics = function()
 
 Analysis$methods(createColumnName = function(n = 1, m = 1)
 {
-  s <- "frage_1."
+  s <- "Hypothese_1."
   s <- paste0(s, n)
   s <- paste0(s, ".")
   s <- paste0(s, m)
