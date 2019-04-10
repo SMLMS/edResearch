@@ -11,3 +11,7 @@
 *.Rproj.user
 *.html
 .Rproj.user
+*.bbl
+*.bcf
+*.blg
+*.xml

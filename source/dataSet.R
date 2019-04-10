@@ -145,8 +145,9 @@ DataSet$methods(plotColumn = function(column='none', condition ='none')
   pie <- ggplot(filteredData, aes(x = "", fill = filteredData[,column])) +
     geom_bar(aes(y = (..count..)/sum(..count..))) +
     theme(axis.line = element_blank(), 
-          plot.title = element_text(hjust=0.5),
-          text = element_text(size=18)) + 
+          plot.title = element_text(hjust= 1.0),
+          text = element_text(size=30),
+          axis.text.x = element_text(size=25)) + 
     labs(fill=column, 
          x=NULL, 
          y=NULL, 
@@ -172,7 +173,10 @@ DataSet$methods(plotBar = function(columns = c('Hypothese_1.1', 'Hypothese_1.8')
     )+
     xlab("H")+
     ylab("P(H=TRUE)")+
-    theme(text = element_text(size=20),axis.text.x = element_text(angle=30, hjust=1)) 
+    theme(axis.title.x = element_text(size=30, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=30, margin = margin(t = 0, r = 20, b = 0, l = 0)),
+          axis.text.y = element_text(size=30),
+          axis.text.x = element_text(size=30, angle=30, hjust=1)) 
   plot(fig)
 }
 )

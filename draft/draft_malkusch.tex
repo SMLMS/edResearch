@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage[sort&compress,numbers]{natbib}
 \usepackage[
   %showframe,% Seitenlayout anzeigen
   left=2.0cm,
@@ -18,11 +19,11 @@
 
 
 \author{
-	{\bf Sebastian Malkusch}\\Johann Wolfgang Goethe Universität\\Frankfurt am Main\\Institut für physikalische unf theoretische Chemie\\Einzelmolekül Biophysik
+	{\bf Sebastian Malkusch}\\Johann Wolfgang Goethe Universität\\Frankfurt am Main\\Institut für physikalische und theoretische Chemie\\Einzelmolekül Biophysik
 }
 
 \title{
-Literaturseminare in den Naturwissinschaften: Die Förderung des Selbstbewusstseins in einer Gruppe durch aktivierende Lehrmethoden
+Literaturseminare in den Naturwissenschaften: Die Förderung des Selbstbewusstseins in einer Gruppe durch aktivierende Lehrmethoden
 }
 
 \begin{document}
@@ -40,4 +41,10 @@ Literaturseminare in den Naturwissinschaften: Die Förderung des Selbstbewusstse
 \input{results}
 \input{discussion}
 %\input{appendix}
+
+\addcontentsline{toc}{section}{Literatur}
+\bibliographystyle{unsrtnat}
+\bibliography{literature}
+
+
 \end{document}

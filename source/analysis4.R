@@ -55,7 +55,10 @@ Analysis4$methods(graphics = function()
     )+
     xlab("D")+
     ylab("P(H=TRUE | D=TRUE)")+
-    theme(text = element_text(size=20),axis.text.x = element_text(angle=30, hjust=1))
+    theme(axis.title.x = element_text(size=30, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+          axis.title.y = element_text(size=30, margin = margin(t = 0, r = 20, b = 0, l = 0)),
+          axis.text.x = element_text(size =30, angle=30, hjust=1),
+          axis.text.y = element_text(size =30))
   plot(fig)
 }
 )
