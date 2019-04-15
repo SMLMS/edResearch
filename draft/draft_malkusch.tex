@@ -7,6 +7,9 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{multirow}
+%\usepackage{caption}
+%\usepackage{booktabs}
 \usepackage[sort&compress,numbers]{natbib}
 \usepackage[
   %showframe,% Seitenlayout anzeigen
@@ -19,7 +22,7 @@
 
 
 \author{
-	{\bf Sebastian Malkusch}\\Johann Wolfgang Goethe Universität\\Frankfurt am Main\\Institut für physikalische und theoretische Chemie\\Einzelmolekül Biophysik
+	{\bf Dr. Sebastian Malkusch}\\Johann Wolfgang Goethe Universität\\Frankfurt am Main\\Institut für physikalische und theoretische Chemie\\Einzelmolekül Biophysik
 }
 
 \title{
@@ -28,9 +31,7 @@ Literaturseminare in den Naturwissenschaften: Die Förderung des Selbstbewusstse
 
 \begin{document}
 \maketitle
-\begin{abstract}
-   abstract-text
-\end{abstract}
+\input{abstract}
 \tableofcontents
 \twocolumn
 \sloppy
@@ -40,11 +41,13 @@ Literaturseminare in den Naturwissenschaften: Die Förderung des Selbstbewusstse
 \input{methods}
 \input{results}
 \input{discussion}
-%\input{appendix}
 
 \addcontentsline{toc}{section}{Literatur}
 \bibliographystyle{unsrtnat}
 \bibliography{literature}
 
-
+\onecolumn
+\newpage
+\input{questionnaire}
+\input{dataset}
 \end{document}
